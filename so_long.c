@@ -28,4 +28,6 @@ int	main(int ac, char **av)
 	// map->mlx_win = mlx_new_window(map->mlx, map->height * 50, \
 	// 	map->width * 50, "So_long!");
 	//ft_print_full(map);
+	mlx_key_hook(map->mlx_win,ft_move,map);
+	mlx_loop(map->mlx);
 }
