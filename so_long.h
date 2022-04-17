@@ -14,35 +14,65 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <fcntl.h>
-# include <stdlib.h>
+# include "./get_next_line/get_next_line.h"
+# include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 
-# define BUFFER_SIZE 1
+# define KEY_ESC 53
+
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
+
+# define KEY_Q 12
+# define KEY_E 14
+# define KEY_R 15
+
 
 typedef struct s_map{
 	int		height;
 	int		width;
 	int		x;
 	int		y;
-	int		count_moves;
 	char	**map_array;
-	void	*mlx;
-	void	*mlx_win;
 	int		startp;
 	int		item;
 	int		exit;
-	char	*player;
-	int		font_w;
-	int		font_h;
-	int		empty;
-	int		wall;
-}t_map; 
+}t_map;
 
-//help:
-char	*get_next_line(int fd);
+typedef struct s_img{
+	void	*img_player;
+	void	*img_coin;
+	void	*img_grass;
+	void	*img_dor;
+	void	*img_wall;
+}t_img;
+
+typedef struct s_game{
+	void	*mlx_player;
+	void	*win_ptr;
+	void	*map;
+	void	*img;
+	void	*move_count;
+}t_game;
+
+//map:
+void	ft_map_dim(t_map *path, t_map *map);
+char	**ft_map_init(char path, t_map *map);
+void	ft_map_chech(t_map *map);
+
+//moves:
+void	ft_move_up(t_game *game);
+void	ft_move_down(t_game *game);
+void	ft_move_right(t_game *game);
+void	ft_move_left(t_game *game);
+
+//graphic:
+void	ft_drawer_init(t_game *game, t_img *img);
+void	ft_game_drawer(t_map *map, t_game *game, t_img *img);
+
+
 //get next line utils:√
 
 // printf
@@ -64,4 +94,5 @@ int		ft_check_walls(t_map *map);
 int		ft_check_rectangle(t_map *map);
 char	*ft_getpath(char *str);
 void	ft_collect_map(t_map *map);
+
 #endif
