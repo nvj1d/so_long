@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:26:05 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/17 22:36:20 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/17 23:47:22 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	**ft_map_init(char *path, t_map *map)
 	map_arr = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!map_arr)
 		return (NULL);
-	fd = open(path,O_RDONLY);
+	fd = open(path, O_RDONLY);
 	i = 0;
 	line = get_next_line(fd);
 	while (line)

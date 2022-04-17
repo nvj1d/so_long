@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:37:33 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/17 23:43:18 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/17 23:50:58 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_check_walls(t_map *map)
 	}
 }
 
-void	ft_check_rect(t_map *map, char c, int i, int j)
+void	ft_check_rect(t_map *map)
 {
 	int		i;
 	char	**map_arr;
@@ -53,8 +53,8 @@ void	ft_check_rect(t_map *map, char c, int i, int j)
 
 void	ft_map_chars_num(t_map *map, char c, int i, int j)
 {
-	if(c == '0' || c == '1')
-		return;
+	if (c == '0' || c == '1')
+		return ;
 	else if (c == 'E')
 		map->item++;
 	else if (c == 'P')
@@ -85,7 +85,7 @@ void	ft_map_check(t_map *tmap)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
 				&& map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != '\n')
-				ft_map_error(tmap,1);
+				ft_map_error(tmap, 1);
 			ft_map_chars_num(tmap, map[i][j], i, j);
 		}
 	}
