@@ -13,13 +13,16 @@
 #include "so_long.h"
 #include "mlx.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	t_map	*map;
-	(void)av;
-	if (ac < 2)
-		ft_error(0, NULL);
-	map = (t_map *)malloc(sizeof(t_map));
+	t_game	game;
+	t_map	map;
+	t_img	img;
+	int		h;
+	int		w;
+	if (argc != 2)
+		ft_printf("the syntax is : ./so_long map\n");
+	game.map = ft_map_init(argv[1], &map);
 	ft_init(map);
 	ft_check_map(map, av[1]);
 	// map->mlx = mlx_init();
