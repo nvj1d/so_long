@@ -20,17 +20,23 @@ int	main(int argc, char **argv)
 	t_img	img;
 	int		h;
 	int		w;
-	if (argc != 2)
+
+	if (argc == 2)
+	{
+		map.map_array = ft_map_init(argv[1], &map);
+		if (!map.map_array)
+			return (0);
+		ft_map_check(&map);
+		ft_init_game(&game, &map, &img);
+		h = map.height * 50;
+		w = map.width * 50;
+		game.win_ptr = mlx_new_window(game.mlx_ptr, w, h, "let's dance!" );
+		ft_drawer_init(&game, &img);
+		ft_game_drawer(&map, &game, &img);
+		// mlx_hook();
+		// mlx_loop();
+	}
+	else
 		ft_printf("the syntax is : ./so_long map\n");
-	game.map = ft_map_init(argv[1], &map);
-	ft_init(map);
-	ft_check_map(map, av[1]);
-	// map->mlx = mlx_init();
-	// if (!map->mlx)
-	// 	ft_error(1, map);
-	// map->mlx_win = mlx_new_window(map->mlx, map->height * 50, \
-	// 	map->width * 50, "So_long!");
-	//ft_print_full(map);
-	mlx_key_hook(map->mlx_win,ft_move,map);
-	mlx_loop(map->mlx);
+	return (0);
 }

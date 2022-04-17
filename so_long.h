@@ -52,7 +52,7 @@ typedef struct s_img{
 
 //the game struct:
 typedef struct s_game{
-	void	*mlx_player;
+	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*map;
 	void	*img;
@@ -62,7 +62,7 @@ typedef struct s_game{
 //map functions:
 void	ft_map_dim(t_map *path, t_map *map);
 char	**ft_map_init(char path, t_map *map);
-void	ft_map_chech(t_map *map);
+void	ft_map_check(t_map *map);
 
 //mouves functions:
 void	ft_move_up(t_game *game);
