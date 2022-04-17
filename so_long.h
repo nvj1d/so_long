@@ -39,7 +39,7 @@ typedef struct s_map{
 	int		font_h;
 	int		empty;
 	int		wall;
-}t_map;
+}t_map; 
 
 //help:
 char	*get_next_line(int fd);
