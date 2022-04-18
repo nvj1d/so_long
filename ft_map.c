@@ -6,11 +6,53 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:26:05 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/17 23:47:22 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/18 00:11:14 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_extention_valid(char *path)
+{
+	int		path_end;
+	char	*ending;
+	char	*validpath;
+
+	path_end = ft_strlen(path) - 4;
+	ending = ".ber";
+	validpath = "code/maps/";
+	if (ft_strncmp(ending, &path[path_end], 4) != 0)
+	{
+		ft_printf("the extention must be - .ber - !\n");
+		exit(0);
+	}
+	else if (ft_strncmp(validpath, path, 10) != 0)
+	{
+		ft_printf("invalid map path!\n");
+		ft_printf("the correct path is ./code/maps/map_name.ber\n");
+		exit(0);
+	}
+}
+
+void	ft_map_dim(char *path, t_map *map)
+{
+	int		fd;
+	int		i;
+	char	*line;
+
+	i = 0;
+	fd = open(path, O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
+	{
+		if (i == 0)
+			map->width = ft_strlen(line) - 1;
+		free(line);
+		line = get_next_line(fd);
+		i++;
+	}
+	map->height = i;
+}
 
 char	**ft_map_init(char *path, t_map *map)
 {
