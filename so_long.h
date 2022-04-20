@@ -46,7 +46,7 @@ typedef struct s_img{
 	void	*img_player;
 	void	*img_coin;
 	void	*img_grass;
-	void	*img_dor;
+	void	*img_door;
 	void	*img_wall;
 }t_img;
 
@@ -54,8 +54,8 @@ typedef struct s_img{
 typedef struct s_game{
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*map;
-	void	*img;
+	t_map	*map;
+	t_img	*img;
 	void	*move_count;
 }t_game;
 
