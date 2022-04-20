@@ -1,27 +1,17 @@
 NAME = so_long
 
+FOLDER = ./src/
+
 CC = gcc
 
 flags = -Werror -Wextra -Wall
 
 header = so_long.h 
 
-srcs = so_long.c \
-	game/ft_check_map.c \
-	game/ft_check_rectagle.c \
-	game/ft_check_walls.c \
-	game/ft_collect_map.c \
-	lib/ft_get_next_line.c \
-	lib/ft_strcnmp.c \
-	lib/ft_strlcat.c \
-	lib/ft_strlen.c \
-	lib/ft_strchr.c \
-	lib/ft_strjoin.c \
-	lib/ft_strlcpy.c \
-	lib/ft_substr.c \
-	utils/ft_error.c \
-	utils/ft_free.c \
-	utils/ft_init.c
+SRCS_C = so_long.c \
+
+SRCS = $(addprefix $(FOLDER),$(SRCS_C))
+
 
 objs = $(srcs:%.c = %.o)
 
