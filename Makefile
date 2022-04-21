@@ -1,32 +1,57 @@
 NAME = so_long
 
-FOLDER = ./src/
-
 CC = gcc
 
 flags = -Werror -Wextra -Wall
 
-header = so_long.h 
+HEADERS = ./src/so_long.h ./src/ft_printf.h ./src/libft.h ./src/get_next_line.h
 
-SRCS_C = so_long.c \
+#so_long
+SRC_FOLDER = ./src/
+SRCS_C = so_long.c draw.c ft_map_check.c ft_map.c
+SRCS = $(addprefix $(SRC_FOLDER),$(SRCS_C))
+OBJS = $(SRCS:%.c = %.o)
 
-SRCS = $(addprefix $(FOLDER),$(SRCS_C))
+#printf
+PRINTF_FOLDER = ./src/ft_printf/
+PRINTF_C = ft_print_pointer.c ft_printf.c ft_putchar.c  ft_putnbr_hex.c  ft_putnbr_unsigned10.c \
+		ft_print_pourcentage.c ft_putnbr_base10.c ft_putnbr_hex_upper.c  ft_putstr.c
+PRINTF_SRCS = $(addprefix $(PRINTF_FOLDER),$(PRINTF_C))
 
 
-objs = $(srcs:%.c = %.o)
+LIBFT_FOLDER = ./src/libft/
+LIBFT_C = ft_atoi.c ft_isalpha.c ft_itoa.c ft_lstdelone.c ft_lstnew.c ft_memcpy.c ft_putendl_fd.c  ft_strchr.c ft_strlcat.c ft_strncmp.c ft_substr.c \
+	ft_bzero.c ft_isascii.c ft_lstadd_back.c ft_lstiter.c ft_lstsize.c ft_memmove.c ft_putnbr_fd.c ft_strdup.c ft_strlcpy.c ft_strnstr.c ft_tolower.c \
+	ft_calloc.c ft_isdigit.c ft_lstadd_front.c ft_lstlast.c ft_memchr.c ft_memset.c ft_putstr_fd.c ft_striteri.c ft_strlen.c ft_strrchr.c ft_toupper.c \
+	ft_isalnum.c ft_isprint.c ft_lstclear.c ft_lstmap.c ft_memcmp.c ft_putchar_fd.c ft_split.c ft_strjoin.c ft_strmapi.c ft_strtrim.c
+LIBFT_SRCS = $(addprefix $(LIBFT_FOLDER),$(LIBFT_C))
+
+GET_NEXT_LINE_FOLDER = ./src/get_next_line/
+GET_NEXT_LINE_C = get_next_line.c get_next_line_utils.c
+GET_NEXT_LINE_SRCS = $(addprefix $(GET_NEXT_LINE_FOLDER),$(GET_NEXT_LINE_C))
+
+LIB_SRCS = $(GET_NEXT_LINE_SRCS) $(PRINTF_SRCS) $(LIBFT_SRCS)
+
+LIBS = ./src/ft_printf.a ./src/libft.a ./src/get_next_line.a
 
 all : $(NAME)
 
 $(NAME) : $(objs)
-	@$(CC) $(flags) $(objs) -o $(NAME) 
+	@$(MAKE) -C $(PRINTF_FOLDER)
+	@echo "printf.a created!"
+	@$(MAKE) -C $(LIBFT_FOLDER)
+	@echo "libft.a created!"
+	@$(MAKE) -C $(GET_NEXT_LINE_FOLDER)
+	@echo "get_next_line.a created!"
+	$(CC) $(OBJS) $(LIBS) -lmlx - framework OpenGL -framework AppKit -o $(NAME) 
 
-# compile with lmlx
+%.o : %.c ${HEADERS}
+	$(CC) $(flags) -Imlx -c $< -o $@
 clean :
-	@rm -rf $(objs)
+	@rm -rf $(LIBS) $(OTHER_OBJTS) $(SRCS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re : fclean all
 
-.PHONEY : all clean fclean re 
