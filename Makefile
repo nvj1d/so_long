@@ -34,7 +34,7 @@ GET_NEXT_LINE_SRCS = $(addprefix $(GET_NEXT_LINE_FOLDER),$(GET_NEXT_LINE_C))
 O_SRCS = $(GET_NEXT_LINE_SRCS) $(PRINTF_SRCS) $(LIBFT_SRCS)
 O_OBJS = $(O_SRCS:.c=.o)
 
-LIBS = ./src/ft_printf.a ./src/libft.a ./src/get_next_line.a
+LIBS = ./src/printf.a ./src/libft.a ./src/get_next_line.a
 
 all : $(NAME)
 
@@ -53,7 +53,7 @@ clean :
 	@rm -rf $(LIBS) $(OBJS) $(O_OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 

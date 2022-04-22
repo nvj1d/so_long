@@ -6,7 +6,7 @@
 #    By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 20:25:19 by mnajid            #+#    #+#              #
-#    Updated: 2022/04/22 20:26:01 by mnajid           ###   ########.fr        #
+#    Updated: 2022/04/22 21:02:19 by mnajid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,16 +21,17 @@ objets = $(srcs:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(objets) ft_printf.h
-	ar rcs $@ $^
+	@ar rcs $@ $^
+	@mv $(NAME) ..
 
 %.o : %.c
-	gcc -Wall -Werror -Wextra -c $< -o $@
+	@gcc -Wall -Werror -Wextra -c $< -o $@
 
 clean :
-	rm -f $(objets)
+	@rm -f $(objets)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all
 	

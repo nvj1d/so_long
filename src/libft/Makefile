@@ -6,7 +6,7 @@
 #    By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 20:25:34 by mnajid            #+#    #+#              #
-#    Updated: 2022/04/22 20:25:35 by mnajid           ###   ########.fr        #
+#    Updated: 2022/04/22 21:02:32 by mnajid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,19 +34,20 @@ objets_bonus = $(sources_bonus:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(objets)
-	    ar rcs $(NAME) $(objets)
+	    @ar rcs $(NAME) $(objets)
+		@mv $(NAME) ..
 
 bonus : $(objets_bonus)
 		ar rcs $(NAME) $(objets_bonus)
 
 %.o : %.c 
-		$(CC) $(c_flags) -c $<
+		@$(CC) $(c_flags) -c $<
 
 clean :
-	    rm -f $(objets)
-		rm -f $(objets_bonus)
+	    @rm -f $(objets)
+		@rm -f $(objets_bonus)
 
 fclean : clean
-	    rm -f $(NAME)
+	    @rm -f $(NAME)
 
 re : fclean all
