@@ -5,22 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/22 20:25:19 by mnajid            #+#    #+#              #
-#    Updated: 2022/04/22 20:26:01 by mnajid           ###   ########.fr        #
+#    Created: 2022/04/22 20:28:37 by mnajid            #+#    #+#              #
+#    Updated: 2022/04/22 20:29:35 by mnajid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf.a
+NAME = get_next_line.a
 
-srcs = ft_print_pointer.c ft_printf.c ft_putchar.c ft_putnbr_hex.c \
-	ft_putnbr_unsigned10.c ft_print_pourcentage.c ft_putnbr_base10.c \
-	ft_putnbr_hex_upper.c ft_putstr.c
+srcs = get_next_line.c get_next_line_utils.c
 
 objets = $(srcs:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(objets) ft_printf.h
+$(NAME) : $(objets)
 	ar rcs $@ $^
 
 %.o : %.c
