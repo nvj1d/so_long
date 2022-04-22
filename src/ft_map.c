@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:26:05 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/18 00:11:14 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:18:03 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**ft_map_init(char *path, t_map *map)
 {
 	int		fd;
 	int		i;
-	int		*line;
+	char	*line;
 	char	**map_arr;
 
 	ft_extention_valid(path);

@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:33:31 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/22 20:30:20 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:08:33 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*get_full_line(char *src, int fd);
 char	*ft_read_line(char *src);
 char	*ft_get_remainder(char *src);
 
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *s);
-char	*ft_strchr(char *src, int c);
+// char	*ft_strjoin(char *s1, char *s2);
+// size_t	ft_strlen(char *s);
+// char	*ft_strchr(char *src, int c);
 
 #endif

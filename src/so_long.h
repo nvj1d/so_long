@@ -60,7 +60,7 @@ typedef struct s_game{
 }t_game;
 
 //map functions:
-void	ft_map_dim(t_map *path, t_map *map);
+void	ft_map_dim(char *path, t_map *map);
 char	**ft_map_init(char *path, t_map *map);
 void	ft_map_check(t_map *map);
 

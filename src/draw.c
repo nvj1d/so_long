@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:55:39 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/20 21:12:25 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:11:12 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_game_drawer(t_map *map, t_game *game, t_img *img)
 {
 	int		i;
 	int		j;
-	char	*map;
 
 	i = -1;
 	while (++i < map->height)

@@ -45,7 +45,7 @@ $(NAME) : $(objs)
 	@echo "libft.a created!"
 	@$(MAKE) -C $(GET_NEXT_LINE_FOLDER)
 	@echo "get_next_line.a created!"
-	$(CC) $(OBJS) $(LIBS) -lmlx - framework OpenGL -framework AppKit -o $(NAME) 
+	$(CC) $(OBJS) $(LIBS) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 %.o : %.c $(HEADERS)
 	$(CC) $(flags) -Imlx -c $< -o $@
