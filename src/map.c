@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:26:05 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/22 21:18:03 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 00:44:01 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void	ft_extention_valid(char *path)
 
 	path_end = ft_strlen(path) - 4;
 	ending = ".ber";
-	validpath = "code/maps/";
+	validpath = "src/maps/";
 	if (ft_strncmp(ending, &path[path_end], 4) != 0)
 	{
 		ft_printf("the extention must be - .ber - !\n");
 		exit(0);
 	}
-	else if (ft_strncmp(validpath, path, 10) != 0)
+	if (ft_strncmp(validpath, path, 10) != 0)
 	{
 		ft_printf("invalid map path!\n");
-		ft_printf("the correct path is ./code/maps/map_name.ber\n");
+		ft_printf("the correct path is ./src/maps/map_name.ber\n");
 		exit(0);
 	}
 }
