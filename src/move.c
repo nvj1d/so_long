@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 20:24:11 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/22 20:44:11 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 00:21:51 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_move_down(t_game *game)
 			map[y][x] = '0';
 			map[y + 1][x] = 'P';
 			game->map->y++;
-			game->move_count;
+			game->move_count++;
 			ft_printf("mouve number: %d\n", game->move_count);
 		}
 	}

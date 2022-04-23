@@ -6,11 +6,11 @@
 #    By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 20:25:19 by mnajid            #+#    #+#              #
-#    Updated: 2022/04/22 21:02:19 by mnajid           ###   ########.fr        #
+#    Updated: 2022/04/23 00:22:19 by mnajid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf.a
+NAME = ft_printf.a
 
 srcs = ft_print_pointer.c ft_printf.c ft_putchar.c ft_putnbr_hex.c \
 	ft_putnbr_unsigned10.c ft_print_pourcentage.c ft_putnbr_base10.c \

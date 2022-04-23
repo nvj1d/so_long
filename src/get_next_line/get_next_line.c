@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnajid <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:33:12 by mnajid            #+#    #+#             */
-/*   Updated: 2021/12/02 15:37:06 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 00:37:04 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_get_remainder(char *src)
 		free(src);
 		return (0);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(src) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen1(src) - i + 1));
 	if (str == NULL)
 		return (NULL);
 	i = i + 1;
@@ -72,7 +72,7 @@ char	*get_full_line(char *src, int fd)
 	if (buffer == NULL)
 		return (NULL);
 	read_bytes = 1;
-	while (!ft_strchr(src, '\n') && read_bytes != 0)
+	while (!ft_strchr1(src, '\n') && read_bytes != 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
@@ -81,7 +81,7 @@ char	*get_full_line(char *src, int fd)
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
-		src = ft_strjoin(src, buffer);
+		src = ft_strjoin1(src, buffer);
 	}
 	free(buffer);
 	return (src);
