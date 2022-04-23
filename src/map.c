@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:26:05 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/23 00:44:01 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 00:52:59 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_extention_valid(char *path)
 		ft_printf("the extention must be - .ber - !\n");
 		exit(0);
 	}
-	if (ft_strncmp(validpath, path, 10) != 0)
+	if (ft_strncmp(validpath, path, 9) != 0)
 	{
 		ft_printf("invalid map path!\n");
 		ft_printf("the correct path is ./src/maps/map_name.ber\n");
