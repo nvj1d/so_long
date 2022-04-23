@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:37:33 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/23 01:01:21 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 22:30:30 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,14 @@ void	ft_check_rect(t_map *map)
 	}
 }
 
-
 void	ft_map_chars_num(t_map *map, char c, int i, int j)
 {
 	if (c == '0' || c == '1')
 		return ;
 	else if (c == 'E')
-		map->item++;
+		map->exit++;
+	else if (c == 'C')
+		map->item++; 
 	else if (c == 'P')
 	{
 		map->startp++;

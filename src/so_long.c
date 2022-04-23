@@ -68,7 +68,6 @@ int	main(int argc, char **argv)
 		if (!map.map_array)
 			return (0);
 		ft_map_check(&map);
-		// ft_printf("hello!\n");
 		ft_init_game(&game, &map, &img);
 		h = map.height * 50;
 		w = map.width * 50;

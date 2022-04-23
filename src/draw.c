@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:55:39 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/22 21:11:12 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/23 22:55:15 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ void	ft_drawer_init(t_game *game, t_img *img)
 
 void	ft_put_image(t_game *game, void *img, int i, int j)
 {
-	void	*w;
-	void	*p;
-
-	w = game->win_ptr;
-	p = game->mlx_ptr;
-	mlx_put_image_to_window(p, w, img, j*50, i*50);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, img, j * 50, i * 50);
 }
 
 void	ft_game_drawer(t_map *map, t_game *game, t_img *img)
@@ -44,7 +39,7 @@ void	ft_game_drawer(t_map *map, t_game *game, t_img *img)
 	while (++i < map->height)
 	{
 		j = -1;
-		while (++j < map->height)
+		while (++j < map->width)
 		{
 			ft_put_image(game, img->img_grass, i, j);
 			if (map->map_array[i][j] == '1')
@@ -57,6 +52,7 @@ void	ft_game_drawer(t_map *map, t_game *game, t_img *img)
 				ft_put_image(game, img->img_player, i, j);
 			else if (map->map_array[i][j] == 'E')
 				ft_put_image(game, img->img_door, i, j);
+			ft_printf("here!\n");
 		}
 	}	
 }
