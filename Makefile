@@ -14,8 +14,6 @@ NAME = so_long
 
 CC = gcc 
 
-FLAGS = -Wall -Wextra -Werror 
-
 SRC_FOLDER = ./src/
 
 INCLUDES = ./src/so_long.h ./src/ft_printf/ft_printf.h ./src/get_next_line/get_next_line.h ./code/libft/libft.h 
@@ -58,9 +56,7 @@ $(NAME) : ${SRCOBJ} $(OTHER_SRCS)
 	@echo "make so_long .. done!"
 
 %.o : %.c ${INCLUDES}
-	echo ${FLAGS}
-	@$(CC) ${FLAGS} -Imlx -c $< -o $@
-	
+	@$(CC) -Wall -Werror -Wextra -Imlx -c $< -o $@
 
 clean :
 	@rm -f $(LIBS) $(OTHER_OBJ) $(SRCOBJ)
