@@ -12,7 +12,14 @@
 
 NAME = so_long
 
+CC = gcc 
+
+FLAGS = -Wall -Wextra -Werror 
+
 SRC_FOLDER = ./src/
+
+INCLUDES = ./src/so_long.h ./src/ft_printf/ft_printf.h ./src/get_next_line/get_next_line.h ./code/libft/libft.h 
+
 SRC = so_long.c map.c map_check.c move.c draw.c
 SRCS = $(addprefix $(SRC_FOLDER), $(SRC))
 SRCOBJ = ${SRCS:.c=.o}
@@ -38,26 +45,22 @@ OTHER_OBJ = ${OTHER_SRCS:.c=.o}
 
 LIBS = ./src/ft_printf.a ./src/get_next_line.a ./src/libft.a
 
-INCLUDES = ./src/so_long.h ./src/ft_printf/ft_printf.h ./src/get_next_line/get_next_line.h ./code/libft/libft.h 
+all : $(NAME)  
 
-# -g for the debugger
-FLAGS = -Wall -Wextra -Werror 
-CC = cc 
-
-%.o : %.c ${INCLUDES}
-	$(CC) ${FLAGS} -Imlx -c $< -o $@
-	
 $(NAME) : ${SRCOBJ} $(OTHER_SRCS)
 	@$(MAKE) -C $(FT_PRINTF_FOLDER)
+	@echo "make ft_printf.a .." 
 	@$(MAKE) -C $(GET_NEXT_LINE_FOLDER)
+	@echo "make get_next_line.a .."
 	@$(MAKE) -C $(LIBFT_FOLDER)
-	@echo "make the ft_printf.a" 
-	@echo "make the get_next_line.a"
-	@echo "make the libft.a"
-	@echo "make the so_long program"
+	@echo "make libft.a .."
 	@$(CC) $(SRCOBJ) $(LIBS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@echo "make so_long .. done!"
 
-all : $(NAME)  
+%.o : %.c ${INCLUDES}
+	echo ${FLAGS}
+	@$(CC) ${FLAGS} -Imlx -c $< -o $@
+	
 
 clean :
 	@rm -f $(LIBS) $(OTHER_OBJ) $(SRCOBJ)
