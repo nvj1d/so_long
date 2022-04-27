@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:55:39 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/24 20:14:14 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:02:53 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	ft_game_drawer(t_map *map, t_game *game, t_img *img)
 		j = -1;
 		while (++j < map->width)
 		{
-			ft_put_image(game, img->img_grass, i, j);
 			if (map->map_array[i][j] == '1')
 				ft_put_image(game, img->img_wall, i, j);
 			else if (map->map_array[i][j] == '0')

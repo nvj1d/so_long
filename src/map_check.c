@@ -6,7 +6,7 @@
 /*   By: mnajid <mnajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:37:33 by mnajid            #+#    #+#             */
-/*   Updated: 2022/04/23 22:30:30 by mnajid           ###   ########.fr       */
+/*   Updated: 2022/04/27 20:54:38 by mnajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_map_chars_num(t_map *map, char c, int i, int j)
 	else if (c == 'E')
 		map->exit++;
 	else if (c == 'C')
-		map->item++; 
+		map->item++;
 	else if (c == 'P')
 	{
 		map->startp++;
@@ -106,7 +106,7 @@ void	ft_map_check(t_map *tmap)
 			ft_map_chars_num(tmap, map[i][j], i, j);
 		}
 	}
-	if (tmap->exit <= 0 || tmap->item <= 0 || tmap->startp != 1)
+	if (tmap->exit < 1 || tmap->item < 1 || tmap->startp != 1)
 		ft_map_errors(tmap, 2);
 	ft_check_walls(tmap);
 }
